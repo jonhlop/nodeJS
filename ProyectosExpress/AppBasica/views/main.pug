@@ -1,57 +1,60 @@
-h1 Cabecera de la pagina 
-p Con pug no hay que abrir y cerrar las etiquetas
-div
-    p Este parrafo esta dentro del div con una tabluacion a la derecha
-    p Otro parrafo
-div
-    a(href="http://google.es", class="enlace") Google.es
-    a.enlace(href="http://www.20minutos.es") 20minutos.es
-.tercero
-    p Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla veniam laudantium ad sapiente exercitationem sint maiores esse optio autem nisi asperiores nam eum adipisci aliquid aut, quod nihil quas explicabo!
-    ul
-        li uno
-        li dos
-        li tres
-.cuarto
-    p= nombre
-    p Mi nombre es #{nombre}
-    p= arrAnimales
-    p#mainParrafo.contenido.activo Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium doloribus, quae ipsum accusantium quos temporibus reiciendis. Modi soluta rerum enim aut dolorem magnam eius saepe repellendus quos esse. Sint, odit!
-.quinto
-    //comentario que aparece en html
-    //- este no aparece
+extends layaout.pug
 
-    case numProductos
-        when 0
-            p No tienes productos
-        when 1
-            p Tienes 1 producto
-        default 
-            p Tienes #{numProductos} Productos
-.sexto
-    //- podemos usar codigo js
-    ul
-        - for(let i= 0; i<arrAnimales.length; i++)
-            li= arrAnimales[i]
-    //- iterador EACH
-    p iterador de pug 
-    ul
-        each animal, index in arrAnimales  
-            li #{index+1} - #{animal}
-.septimo
-    table
-        thead
-            tr
-                th Nombre
-                th Apellidos
-                th Departamento
-                th Activo
-        tbody
-            each empleado in empleados
+block contenido
+    h1 Cabecera de la pagina 
+    p Con pug no hay que abrir y cerrar las etiquetas
+    div
+        p Este parrafo esta dentro del div con una tabluacion a la derecha
+        p Otro parrafo
+    div
+        a(href="http://google.es", class="enlace") Google.es
+        a.enlace(href="http://www.20minutos.es") 20minutos.es
+    .tercero
+        p Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla veniam laudantium ad sapiente exercitationem sint maiores esse optio autem nisi asperiores nam eum adipisci aliquid aut, quod nihil quas explicabo!
+        ul
+            li uno
+            li dos
+            li tres
+    .cuarto
+        p= nombre
+        p Mi nombre es #{nombre}
+        p= arrAnimales
+        p#mainParrafo.contenido.activo Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium doloribus, quae ipsum accusantium quos temporibus reiciendis. Modi soluta rerum enim aut dolorem magnam eius saepe repellendus quos esse. Sint, odit!
+    .quinto
+        //comentario que aparece en html
+        //- este no aparece
+
+        case numProductos
+            when 0
+                p No tienes productos
+            when 1
+                p Tienes 1 producto
+            default 
+                p Tienes #{numProductos} Productos
+    .sexto
+        //- podemos usar codigo js
+        ul
+            - for(let i= 0; i<arrAnimales.length; i++)
+                li= arrAnimales[i]
+        //- iterador EACH
+        p iterador de pug 
+        ul
+            each animal, index in arrAnimales  
+                li #{index+1} - #{animal}
+    .septimo
+        table
+            thead
                 tr
-                    td= empleado.nombre
-                    td= empleado.apellidos
-                    td= empleado.departamento
-                    td= empleado.activo
+                    th Nombre
+                    th Apellidos
+                    th Departamento
+                    th Activo
+            tbody
+                each empleado in empleados
+                    tr
+                        td= empleado.nombre
+                        td= empleado.apellidos
+                        td= empleado.departamento
+                        td= empleado.activo
 
 
