@@ -1,0 +1,17 @@
+GET http://localhost:3000/tests/ejemplo/a
+
+###
+GET http://localhost:3000/tests/ejemplo/b
+
+###
+POST http://localhost:3000/users/create
+Content-Type: application/json
+
+{
+    "name": "Mario",
+    "surname": "Girón",
+    "email": "mario@neoland.es"
+}
+
+###
+GET http://localhost:3000/users?limit=10&sort=name

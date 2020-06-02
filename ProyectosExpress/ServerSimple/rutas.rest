@@ -1,0 +1,7 @@
+GET http://localhost:3200
+
+###
+GET http://localhost:3200/contacto
+
+###
+POST http://localhost:3200/clientes/create
