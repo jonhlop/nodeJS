@@ -1,4 +1,4 @@
-extends layaout.pug
+extends layout.pug
 
 block contenido
     h1 Cabecera de la pagina 
@@ -56,5 +56,7 @@ block contenido
                         td= empleado.apellidos
                         td= empleado.departamento
                         td= empleado.activo
+    .octavo 
+        +lista(arrAnimales)
 
 

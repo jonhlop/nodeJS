@@ -44,4 +44,8 @@ router.get('/', function (req, res, next) {
   });
 });
 
+router.get('/info',(req, res)=>{
+  res.render('info');
+  
+})
 module.exports = router;

@@ -1,0 +1,21 @@
+extends layout.pug
+
+mixin lista 
+    ul
+        li uno
+        li dos
+        li tres
+block contenido
+    h2 Info de la pagina
+    p Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quo consequatur quas vitae, modi, similique quasi veritatis doloremque praesentium delectus soluta accusamus exercitationem dolorum reprehenderit accusantium aliquid quaerat esse dignissimos?
+    .listas 
+        +lista([])
+    p
+          Contenido del parrafo
+    scrpit.
+        console.log('Hola javascript')
+        
+
+
+block footer
+    p copyright @ Jonathan lopez
