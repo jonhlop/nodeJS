@@ -11,16 +11,42 @@ const getAll = () => {
 
 }
 
-const create = () => {
+const create = ({
+    nombre,
+    apellidos,
+    direccion,
+    email,
+    edad,
+    sexo,
+    cuota,
+    fecha_nacimiento,
+    dni
+}) => {
     return new Promise((resolve, reject) => {
-        db.query('insert into clientes (nombre, apellidos, direccion, email, edad, sexo, fecha_inscripcion, cuota, fecha_nacimiento, dni) values (?,?,?,?,?,?,?,?,?,?)',
-            [], (err, result) => {
+        db.query('insert into clientes (nombre, apellidos, direccion, email, edad, sexo, cuota, fecha_nacimiento, dni) values (?,?,?,?,?,?,?,?,?)',
+            [nombre, apellidos, direccion, email, edad, sexo, cuota, fecha_nacimiento, dni],
+            (err, result) => {
                 if (err) reject(err);
                 resolve(result)
             })
     })
 }
 
+const getById = (pClienteId)=>{
+    return new Promise((resolve, reject)=>{
+        db.query('select * from clientes where id = ?', [pClienteId], (err, rows)=>{
+            if(err) reject(err);
+            if(rows.length !== 1) reject('El id no existe')
+            resolve(rows[0])
+        })
+        
+    })
+}
+
+
+
 module.exports = {
-    getAll
+    getAll,
+    create,
+    getById
 }
