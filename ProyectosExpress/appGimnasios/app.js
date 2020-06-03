@@ -4,10 +4,12 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-const clientesRouter = require('./routes/clientes')
-
+const clientesRouter = require('./routes/clientes');
 
 var app = express();
+
+require('./db').connect();
+//creamos la conexion con la base de datos
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -21,11 +23,12 @@ app.use(express.urlencoded({
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use((req, res) => {
-  if (req.url == '/') {
-    res.redirect('/clientes')
+app.use((req, res, next) => {
+  if (req.url === '/') {
+    res.redirect('/clientes');
+  } else {
+    next();
   }
-
 })
 
 app.use('/clientes', clientesRouter);
