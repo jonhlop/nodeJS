@@ -6,10 +6,18 @@ var logger = require('morgan');
 
 const clientesRouter = require('./routes/clientes');
 
-var app = express();
+//aqui cargamos las variables de entorono
+require('dotenv').config();
 
-require('./db').connect();
+const app = express();
+
 //creamos la conexion con la base de datos
+require('./db').connect();
+
+db.query('select * from clientes', (err, rows) => {
+  if (err) console.log(err);
+  console.log(rows);
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

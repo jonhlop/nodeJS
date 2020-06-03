@@ -2,3 +2,27 @@ extends ../layout
 
 block content
     h2.mt-5 Lista de Clientes
+     h1.mt-5 lista de clientes
+    table.table
+        thead
+            tr
+                th Nombre
+                th Apellidos
+                th Direccion
+                th Email
+                th Edad
+                th Sexo
+                th Couta
+                th DNI
+        tbody
+            each cliente in clientes
+                tr
+                    td= cliente.nombre
+                    td= cliente.apellidos
+                    td= cliente.direccion
+                    td= cliente.email
+                    td= cliente.edad
+                    td= cliente.sexo
+                    td= cliente.couta
+                    td= cliente.dni
+                

@@ -1,7 +1,18 @@
 const router = require('express').Router();
 
+const Cliente = require('../models/clientes')
+
 router.get('/', (req, res) => {
-    res.render('clientes/index');
+    Cliente.getAll()
+        .then(rows => {
+            res.render('clientes/index', {
+                clientes: rows
+            })
+        })
+        .catch((err) => {
+            res.send(err)
+        });
+   
 });
 
 router.get('/new', (req, res) => {
