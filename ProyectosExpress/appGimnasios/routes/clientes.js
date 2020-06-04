@@ -30,15 +30,32 @@ router.get("/:idCliente", async (req, res) => {
     res.send(err);
   }
 
- 
+
 });
 
-router.get("/edit/:idCliente", (req, res) => {
-  res.send("Estoy en /clientes/edit/" + req.params.idCliente);
+router.get("/edit/:idCliente", async (req, res) => {
+
+  try {
+    const cliente = await Cliente.getById(req.params.idCliente);
+    cliente.fecha_nacimiento = moment(cliente.fecha_nacimiento).format('DD/MM/YYYY')
+    res.render('clientes/formEdit', {
+      cliente
+    })
+  } catch (err) {
+    res.send(err)
+  }
+
 });
 
 router.get("/delete/:idCliente", (req, res) => {
-  res.send("Estoy en /clientes/delete/" + req.params.idCliente);
+  Cliente.deleteById(req.params.idCliente)
+    .then(result => {
+      console.log(result);
+      res.redirect('/clientes') //tiene que volver a lanzar una peticion get sobre clientes
+    })
+    .catch(err => {
+
+    })
 });
 
 router.post("/create", async (req, res) => {

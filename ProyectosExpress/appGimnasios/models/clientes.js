@@ -32,21 +32,38 @@ const create = ({
     })
 }
 
-const getById = (pClienteId)=>{
-    return new Promise((resolve, reject)=>{
-        db.query('select * from clientes where id = ?', [pClienteId], (err, rows)=>{
-            if(err) reject(err);
-            if(rows.length !== 1) reject('El id no existe')
+const getById = (pClienteId) => {
+    return new Promise((resolve, reject) => {
+        db.query('select * from clientes where id = ?', [pClienteId], (err, rows) => {
+            if (err) reject(err);
+            if (rows.length !== 1) reject('El id no existe')
             resolve(rows[0])
         })
-        
+
     })
 }
+/* Extructura con callback
+const deleteByIdCb = (pClientId, callback) => {
+    db.query('delete from clientes where id = ?', [pClientId], callback);
+}
 
+deleteByIdCb(9, (err, result) => {
+    console.log(result);
+});
+ */
 
+const deleteById = (pClienteId) => {
+    return new Promise((resolve, reject) => {
+        db.query('delete from clientes where id = ?', [pClienteId], (err, rows) => {
+            if (err) reject(err);
+            resolve(rows[0])
+        })
+    })
+}
 
 module.exports = {
     getAll,
     create,
-    getById
+    getById,
+    deleteById
 }

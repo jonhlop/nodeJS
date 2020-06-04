@@ -25,4 +25,7 @@ block content
                     td= cliente.sexo
                     td= cliente.couta
                     td= cliente.dni
+                    td
+                        a.btn.btn-primary.btn-sm(href="/clientes/"+cliente.id) Detalle
+                        a.btn.btn-danger.btn-sm(href="/clientes/delete/"+cliente.id) Borrar
                 
