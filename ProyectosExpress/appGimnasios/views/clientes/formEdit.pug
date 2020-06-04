@@ -1,7 +1,7 @@
 extends ../layout
 
 block content
-    h2.mt-5 edita un Cliente
+    h2.mt-5 Edita Cliente
     form(action="/clientes/update", method="POST")
         .form-group
             label Nombre
@@ -19,17 +19,18 @@ block content
             label Edad
             input.form-control(type="number", name="edad", value=cliente.edad)
         .form-group
-            label Sexo
-            select.form-control(name="sexo")
-                option(value="M", selected(clientes.sexo === 'M')) Masculino
-                option(value="F", selected(clientes.sexo === 'F')) Femenino
+            label Sexo            
+            select.form-control(name="sexo", autocomplete="off")
+                option(value="M", selected=(cliente.sexo === 'M')) Masculino
+                option(value="F", selected=(cliente.sexo === 'F')) Femenino
         .form-group
             label Cuota
             input.form-control(type="text", name="cuota", value=cliente.cuota)
         .form-group
             label Dni
-            input.form-control(type="text", name="dni", value=cliente.cuota)
+            input.form-control(type="text", name="dni", value=cliente.dni)
         .form-group
             label Fecha Nacimiento
-            input.form-control(type="date", name="fecha_nacimiento", value=cliente.cuota)
+            input.form-control(type="date", name="fecha_nacimiento", value=cliente.fecha_nacimiento)
+        input(type="hidden", name="idCliente", value=cliente.id)
         input.btn.btn-info.btn-block(type="submit", value="Enviar")

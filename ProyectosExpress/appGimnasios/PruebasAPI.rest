@@ -1,0 +1,54 @@
+GET http://localhost:3000/api/clientes
+
+###
+
+POST http://localhost:3000/api/clientes
+Content-Type: application/json
+
+{
+    "nombre": "Prueba de api",
+    "apellidos": "López",
+    "direccion": "C Barco 27",
+    "email": "prueba@gmail.com",
+    "edad": 33,
+    "sexo": "F",
+    "cuota": 23.99,
+    "fecha_nacimiento": "1984-08-20",
+    "dni": "8893932J"
+}
+
+###
+
+DELETE http://localhost:3000/api/clientes/10
+
+###
+
+PUT http://localhost:3000/api/clientes/6
+Content-Type: application/json
+
+{
+    "nombre": "Sergio",
+    "apellidos": "Lopez",
+    "direccion": "Plaza de don paquito 13",
+    "email": "sergio@gmail.com",
+    "edad": 23,
+    "sexo": "M",
+    "cuota": 19.9,
+    "fecha_nacimiento": "1979-11-04",
+    "dni": "0000987578"
+}
+
+###
+
+DELETE http://localhost:3000/api/clientes/cuota/30
+
+### LOGIN y REGISTRO
+
+POST http://localhost:3000/api/usuarios/registro
+Content-Type: application/json
+
+{
+    "username": "marioG",
+    "email": "mario@gmail.com",
+    "password": "12345"
+}

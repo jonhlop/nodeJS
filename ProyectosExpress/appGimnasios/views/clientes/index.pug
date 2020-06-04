@@ -2,18 +2,18 @@ extends ../layout
 
 block content
     h2.mt-5 Lista de Clientes
-     h1.mt-5 lista de clientes
     table.table
         thead
             tr
                 th Nombre
                 th Apellidos
-                th Direccion
+                th Dirección
                 th Email
                 th Edad
                 th Sexo
-                th Couta
+                th Cuota
                 th DNI
+                th Acciones
         tbody
             each cliente in clientes
                 tr
@@ -23,9 +23,9 @@ block content
                     td= cliente.email
                     td= cliente.edad
                     td= cliente.sexo
-                    td= cliente.couta
+                    td= cliente.cuota
                     td= cliente.dni
                     td
-                        a.btn.btn-primary.btn-sm(href="/clientes/"+cliente.id) Detalle
-                        a.btn.btn-danger.btn-sm(href="/clientes/delete/"+cliente.id) Borrar
-                
+                        a.btn.btn-info.btn-sm(href="/clientes/"+cliente.id) Detalle
+                        a.btn.btn-danger.btn-sm.ml-1(href="/clientes/delete/"+cliente.id) Borrar
+                        a.btn.btn-primary.btn-sm.ml-1(href="/clientes/edit/"+cliente.id) Editar

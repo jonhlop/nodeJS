@@ -1,1 +1,1 @@
-exports.selectAll= 'select * from clientes'
+exports.selectAll = 'select * from clientes';
