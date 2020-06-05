@@ -1,8 +1,10 @@
 GET http://localhost:3000/api/clientes
+User-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImNyZWF0ZWRBdCI6MTU5MTM0NTk5NiwiZXhwaXJlZEF0IjoxNTkxMzQ2ODk2LCJpYXQiOjE1OTEzNDU5OTZ9.PD3iYJQQ5am0DyggiZkVPvbP5s-Rq6yPy3AmQYytskU
 
 ###
 
 POST http://localhost:3000/api/clientes
+User-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImNyZWF0ZWRBdCI6MTU5MTM0NzUxMSwiZXhwaXJlZEF0IjoxNTkxMzQ4NDExLCJpYXQiOjE1OTEzNDc1MTF9.Ygqc1oTK73gPnDfMZr6fOglfe2bw0XBNK8Io8MnSVqQ
 Content-Type: application/json
 
 {
@@ -48,16 +50,17 @@ POST http://localhost:3000/api/usuarios/registro
 Content-Type: application/json
 
 {
-    "username": "marioG",
-    "email": "mario@gmail.com",
+    "username": "lorenzo",
+    "email": "lorenoz@gmail.com",
     "password": "12345"
 }
 
 ###
+
 POST http://localhost:3000/api/usuarios/login
 Content-Type: application/json
 
 {
-    "email":"mario@gmail.com",
-    "password": "12345" 
+    "email": "mario@gmail.com",
+    "password": "12345"
 }

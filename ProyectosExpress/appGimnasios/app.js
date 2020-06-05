@@ -6,6 +6,7 @@ const logger = require('morgan');
 
 const clientesRouter = require('./routes/clientes');
 const apiRouter = require('./routes/api');
+const { mainRedirect } = require('./routes/middlewares');
 
 // Cargamos las variables de entorno
 require('dotenv').config();
@@ -31,12 +32,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
-  if (req.url === '/') {
-    res.redirect('/clientes');
-  } else {
-    next();
-  }
-})
+  req.responseTime = new Date();
+  next();
+});
+
+app.use(mainRedirect);
 
 app.use('/clientes', clientesRouter);
 app.use('/api', apiRouter);

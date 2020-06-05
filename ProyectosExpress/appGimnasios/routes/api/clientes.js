@@ -1,6 +1,7 @@
 const router = require('express').Router();
 
 const Cliente = require('../../models/cliente');
+const { isAdmin } = require('../middlewares');
 
 /**
  * 
@@ -16,6 +17,7 @@ const Cliente = require('../../models/cliente');
 // GET http://localhost:3000/api/clientes
 // Recupera todos los clientes
 router.get('/', (req, res) => {
+    console.log(req.payload.userId);
     Cliente.getAll()
         .then((rows) => {
             res.json(rows);
@@ -27,7 +29,7 @@ router.get('/', (req, res) => {
 
 // POST http://localhost:3000/api/clientes
 // Crea un nuevo cliente en la BD
-router.post('/', async (req, res) => {
+router.post('/', isAdmin, async (req, res) => {
     const result = await Cliente.create(req.body);
     if (result['affectedRows'] === 1) {
         const cliente = await Cliente.getById(result['insertId']);
