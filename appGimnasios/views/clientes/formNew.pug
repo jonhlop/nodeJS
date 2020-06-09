@@ -1,0 +1,35 @@
+extends ../layout
+
+block content
+    h2.mt-5 Crea un nuevo Cliente
+    form(action="/clientes/create", method="POST")
+        .form-group
+            label Nombre
+            input.form-control(type="text", name="nombre")
+        .form-group
+            label Apellidos
+            input.form-control(type="text", name="apellidos")
+        .form-group
+            label Dirección
+            input.form-control(type="text", name="direccion")
+        .form-group
+            label Email
+            input.form-control(type="text", name="email")
+        .form-group
+            label Edad
+            input.form-control(type="number", name="edad")
+        .form-group
+            label Sexo
+            select.form-control(name="sexo")
+                option(value="M") Masculino
+                option(value="F") Femenino
+        .form-group
+            label Cuota
+            input.form-control(type="text", name="cuota")
+        .form-group
+            label Dni
+            input.form-control(type="text", name="dni")
+        .form-group
+            label Fecha Nacimiento
+            input.form-control(type="date", name="fecha_nacimiento")
+        input.btn.btn-info.btn-block(type="submit", value="Enviar")

@@ -1,0 +1,66 @@
+GET http://localhost:3000/api/clientes
+User-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImNyZWF0ZWRBdCI6MTU5MTM0NTk5NiwiZXhwaXJlZEF0IjoxNTkxMzQ2ODk2LCJpYXQiOjE1OTEzNDU5OTZ9.PD3iYJQQ5am0DyggiZkVPvbP5s-Rq6yPy3AmQYytskU
+
+###
+
+POST http://localhost:3000/api/clientes
+User-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImNyZWF0ZWRBdCI6MTU5MTM1MDczMSwiZXhwaXJlZEF0IjoxNTkxMzUxNjMxLCJpYXQiOjE1OTEzNTA3MzF9.hY2pMxHUkMMp5St1QjWZWCum9VPhKOxWjunqFfE0OOo
+Content-Type: application/json
+
+{
+    "nombre": "Jo",
+    "apellidos": "López",
+    "direccion": "C Barco 27",
+    "email": "prueba",
+    "edad": 33,
+    "sexo": "F",
+    "cuota": 23.99,
+    "fecha_nacimiento": "1984-08-20",
+    "dni": "8893932J"
+}
+
+###
+
+DELETE http://localhost:3000/api/clientes/10
+
+###
+
+PUT http://localhost:3000/api/clientes/6
+Content-Type: application/json
+
+{
+    "nombre": "Sergio",
+    "apellidos": "Lopez",
+    "direccion": "Plaza de don paquito 13",
+    "email": "sergio@gmail.com",
+    "edad": 23,
+    "sexo": "M",
+    "cuota": 19.9,
+    "fecha_nacimiento": "1979-11-04",
+    "dni": "0000987578"
+}
+
+###
+
+DELETE http://localhost:3000/api/clientes/cuota/30
+
+### LOGIN y REGISTRO
+
+POST http://localhost:3000/api/usuarios/registro
+Content-Type: application/json
+
+{
+    "username": "lorenzo",
+    "email": "lorenoz@gmail.com",
+    "password": "12345"
+}
+
+###
+
+POST http://localhost:3000/api/usuarios/login
+Content-Type: application/json
+
+{
+    "email": "mario@gmail.com",
+    "password": "12345"
+}

@@ -1,0 +1,21 @@
+<h2>Funciona HBS!!</h2>
+<table class="table">
+    <tr>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+        <th>Nombre Completo</th>
+        <th>Edad</th>
+        <th>Activo</th>
+        <th>Dni</th>
+    </tr>
+    {{#each estudiantes as |estudiante|}}
+    <tr>
+        <td>{{estudiante.nombre}}</td>
+        <td>{{estudiante.apellidos}}</td>
+        <td>{{estudiante.nombre_completo}}</td>
+        <td>{{estudiante.edad}}</td>
+        <td>{{estudiante.activo}}</td>
+        <td>{{estudiante.dni}}</td>
+    </tr>
+    {{/each}}
+</table>
